@@ -120,7 +120,7 @@ suspend fun Etherscan.getInternalTransactionsByBlock(
 
 suspend fun Etherscan.getAddressERC20Transfers(
     address: String,
-    contractAddress: String,
+    contractAddress: String? = null,
     startBlock: Int = 0,
     endBlock: Int = 99999999,
     page: Int = 1,

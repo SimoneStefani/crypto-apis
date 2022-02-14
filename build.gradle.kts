@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "dev.simonestefani"
-version = "0.1.0"
+version = "0.2.0"
 
 val Project.sourceSets: SourceSetContainer get() =
     (this as ExtensionAware).extensions.getByName("sourceSets") as SourceSetContainer
@@ -23,7 +23,7 @@ subprojects {
     }
 
     group = "dev.simonestefani"
-    version = "0.1.0"
+    version = "0.2.0"
 
     repositories {
         mavenCentral()

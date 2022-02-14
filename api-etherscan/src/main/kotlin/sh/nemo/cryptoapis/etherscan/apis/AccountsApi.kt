@@ -12,7 +12,7 @@ import sh.nemo.cryptoapis.etherscan.models.Sort
 import sh.nemo.cryptoapis.etherscan.models.Tag
 import sh.nemo.cryptoapis.etherscan.models.Transaction
 
-suspend fun Etherscan.getAddressEtherBalance(address: String, tag: Tag = sh.nemo.cryptoapis.etherscan.models.Tag.LATEST): EtherscanResponse<BigInteger> =
+suspend fun Etherscan.getAddressEtherBalance(address: String, tag: Tag = Tag.LATEST): EtherscanResponse<BigInteger> =
     sh.nemo.cryptoapis.etherscan.EtherscanRequester.get<EtherscanResponse<String>>(
         path = "",
         queryParameters = mapOf(
@@ -27,7 +27,7 @@ suspend fun Etherscan.getAddressEtherBalance(address: String, tag: Tag = sh.nemo
 
 suspend fun Etherscan.getAddressesEtherBalances(
     addresses: List<String>,
-    tag: Tag = sh.nemo.cryptoapis.etherscan.models.Tag.LATEST
+    tag: Tag = Tag.LATEST
 ): EtherscanResponse<List<EtherBalance>> =
     sh.nemo.cryptoapis.etherscan.EtherscanRequester.get(
         path = "",
@@ -46,7 +46,7 @@ suspend fun Etherscan.getAddressTransactions(
     endBlock: Int = 99999999,
     page: Int = 1,
     offset: Int = 10,
-    sort: Sort = sh.nemo.cryptoapis.etherscan.models.Sort.ASC,
+    sort: Sort = Sort.ASC,
 ): EtherscanResponse<List<Transaction>> =
     sh.nemo.cryptoapis.etherscan.EtherscanRequester.get(
         path = "",
@@ -69,7 +69,7 @@ suspend fun Etherscan.getAddressInternalTransactions(
     endBlock: Int = 99999999,
     page: Int = 1,
     offset: Int = 10,
-    sort: Sort = sh.nemo.cryptoapis.etherscan.models.Sort.ASC,
+    sort: Sort = Sort.ASC,
 ): EtherscanResponse<List<InternalTransaction>> =
     sh.nemo.cryptoapis.etherscan.EtherscanRequester.get(
         path = "",
@@ -102,7 +102,7 @@ suspend fun Etherscan.getInternalTransactionsByBlock(
     endBlock: Int,
     page: Int = 1,
     offset: Int = 10,
-    sort: Sort = sh.nemo.cryptoapis.etherscan.models.Sort.ASC,
+    sort: Sort = Sort.ASC,
 ): EtherscanResponse<List<InternalTransaction>> =
     sh.nemo.cryptoapis.etherscan.EtherscanRequester.get(
         path = "",
@@ -125,7 +125,7 @@ suspend fun Etherscan.getAddressERC20Transfers(
     endBlock: Int = 99999999,
     page: Int = 1,
     offset: Int = 10,
-    sort: Sort = sh.nemo.cryptoapis.etherscan.models.Sort.ASC,
+    sort: Sort = Sort.ASC,
 ): EtherscanResponse<List<ERC20Transfer>> =
     sh.nemo.cryptoapis.etherscan.EtherscanRequester.get(
         path = "",
@@ -145,12 +145,12 @@ suspend fun Etherscan.getAddressERC20Transfers(
 
 suspend fun Etherscan.getAddressERC721Transfers(
     address: String,
-    contractAddress: String,
+    contractAddress: String? = null,
     startBlock: Int = 0,
     endBlock: Int = 99999999,
     page: Int = 1,
     offset: Int = 10,
-    sort: Sort = sh.nemo.cryptoapis.etherscan.models.Sort.ASC,
+    sort: Sort = Sort.ASC,
 ): EtherscanResponse<List<ERC721Transfer>> =
     sh.nemo.cryptoapis.etherscan.EtherscanRequester.get(
         path = "",

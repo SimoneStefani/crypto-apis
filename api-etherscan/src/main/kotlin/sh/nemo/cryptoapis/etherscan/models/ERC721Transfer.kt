@@ -1,4 +1,4 @@
-package sh.nemo.api.etherscan.models
+package sh.nemo.cryptoapis.etherscan.models
 
 import com.ionspin.kotlin.bignum.integer.BigInteger
 import kotlinx.serialization.Contextual
@@ -6,7 +6,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ERC20Transfer(
+data class ERC721Transfer(
     val hash: String,
     val timeStamp: Int,
     val blockNumber: Long,
@@ -18,7 +18,6 @@ data class ERC20Transfer(
     val from: String,
     val to: String,
 
-    @Contextual val value: BigInteger,
     val input: String? = null,
 
     @Contextual val gasPrice: BigInteger,
@@ -27,6 +26,7 @@ data class ERC20Transfer(
     val gasUsed: Long,
 
     val contractAddress: String,
+    val tokenID: Long,
     val tokenName: String,
     val tokenSymbol: String,
     val tokenDecimal: Int,

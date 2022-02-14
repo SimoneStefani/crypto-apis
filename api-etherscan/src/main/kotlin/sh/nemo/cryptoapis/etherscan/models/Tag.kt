@@ -1,4 +1,4 @@
-package sh.nemo.api.etherscan.models
+package sh.nemo.cryptoapis.etherscan.models
 
 enum class Tag {
     EARLIEST, PENDING, LATEST

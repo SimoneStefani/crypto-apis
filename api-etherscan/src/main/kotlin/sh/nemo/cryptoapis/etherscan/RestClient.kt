@@ -1,4 +1,4 @@
-package sh.nemo.api.etherscan
+package sh.nemo.cryptoapis.etherscan
 
 import com.ionspin.kotlin.bignum.serialization.kotlinx.humanReadableSerializerModule
 import io.ktor.client.HttpClient

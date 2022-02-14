@@ -1,4 +1,4 @@
-package sh.nemo.api.etherscan
+package sh.nemo.cryptoapis.etherscan
 
 import io.ktor.client.HttpClient
 import io.ktor.client.request.accept
@@ -40,17 +40,5 @@ class EtherscanRequester {
 
         suspend inline fun <reified T> get(path: String, queryParameters: Map<String, Any?>? = null): T =
             request(path = path, httpMethod = HttpMethod.Get, queryParameters = queryParameters)
-
-        suspend inline fun <reified T> post(path: String, body: Any): T =
-            request(path = path, httpMethod = HttpMethod.Post, requestBody = body)
-
-        suspend inline fun <reified T> patch(path: String, body: Any): T =
-            request(path = path, httpMethod = HttpMethod.Patch, requestBody = body)
-
-        suspend inline fun <reified T> put(path: String, body: Any? = null): T =
-            request(path = path, httpMethod = HttpMethod.Put, requestBody = body)
-
-        suspend inline fun <reified T> delete(path: String): T =
-            request(path = path, httpMethod = HttpMethod.Delete)
     }
 }

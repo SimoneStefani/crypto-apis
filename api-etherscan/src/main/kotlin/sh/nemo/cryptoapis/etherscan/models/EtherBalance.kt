@@ -1,4 +1,4 @@
-package sh.nemo.api.etherscan.models
+package sh.nemo.cryptoapis.etherscan.models
 
 import com.ionspin.kotlin.bignum.integer.BigInteger
 import kotlinx.serialization.Contextual

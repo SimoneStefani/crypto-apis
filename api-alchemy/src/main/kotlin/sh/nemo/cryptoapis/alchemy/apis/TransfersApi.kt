@@ -13,7 +13,7 @@ suspend fun Alchemy.getAssetTransfers(
     contractAddresses: List<String>,
     category: List<String> = listOf("token"),
 ): AlchemyResponse.Result<List<AssetTransfer>> =
-    AlchemyRequester.post<AlchemyResponse<List<AssetTransfer>>>(
+    AlchemyRequester.rpcCall<AlchemyResponse<List<AssetTransfer>>>(
         path = "${this.apiKey}",
         rpcMethod = "alchemy_getAssetTransfers",
         params = listOf(

@@ -6,5 +6,6 @@ import kotlinx.serialization.Serializable
 data class GetNftsResponse<T: AbstractNftResonse>(
     val ownedNfts: List<T>,
     val totalCount: Long,
-    val blockHash: String
+    val blockHash: String,
+    val pageKey: String? = null
 )

@@ -8,10 +8,10 @@ import kotlinx.serialization.json.JsonElement
 data class NftWithMetadata(
     override val contract: Contract,
     override val id: Id,
-    override val balance: String,
+    override val balance: String? = null,
 
-    val title: String,
-    val description: String,
+    val title: String? = null,
+    val description: String? = null,
     val tokenUri: Resource,
     val media: List<Resource>,
     val metadata: Metadata,
@@ -33,12 +33,12 @@ data class NftWithMetadata(
 
     @Serializable
     data class Metadata(
-        val name: String,
-        val description: String,
-        val image: String,
+        val name: String? = null,
+        val description: String? = null,
+        val image: String? = null,
         @SerialName("external_url")
         val externalUrl: String? = null,
-        val attributes: JsonElement
+        val attributes: JsonElement? = null
     )
 
     @Serializable

@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 abstract class AbstractNftResonse {
     abstract val contract: Contract
     abstract val id: Id
-    abstract val balance: String
+    abstract val balance: String?
 
     @Serializable
     data class Contract(val address: String)

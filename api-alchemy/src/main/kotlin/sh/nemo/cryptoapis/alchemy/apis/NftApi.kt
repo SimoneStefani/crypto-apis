@@ -29,3 +29,13 @@ suspend fun Alchemy.getNfts(owner: String, contractAddresses: List<String>? = nu
             "pageKey" to pageKey
         )
     )
+
+suspend fun Alchemy.getNftMetadata(contract: String, tokenId: String, tokenType: NftWithMetadata.TokenType) =
+    AlchemyRequester.get<NftWithMetadata>(
+        path = "${this.apiKey}/getNFTMetadata",
+        queryParameters = mapOf(
+            "contractAddress" to contract,
+            "tokenId" to tokenId,
+            "tokenType" to tokenType
+        )
+    )

@@ -18,10 +18,10 @@ data class NftWithMetadata(
 ) : AbstractNftResonse() {
 
     @Serializable
-    data class Id(override val tokenId: String, val tokenMetadata: TokenMetadata) : AbstractNftResonse.Id()
+    data class Id(override val tokenId: String, val tokenMetadata: TokenMetadata? = null) : AbstractNftResonse.Id()
 
     @Serializable
-    data class TokenMetadata(val tokenType: TokenType)
+    data class TokenMetadata(val tokenType: TokenType? = null)
 
     @Serializable
     enum class TokenType {

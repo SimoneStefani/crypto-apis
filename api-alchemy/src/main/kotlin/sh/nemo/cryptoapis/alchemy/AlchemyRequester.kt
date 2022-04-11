@@ -34,7 +34,10 @@ class AlchemyRequester {
                 }
                 queryParameters?.map { queryParam ->
                     queryParam.value?.let {
-                        parameter(queryParam.key, queryParam.value)
+                        when (it) {
+                            is List<*> -> it.forEach { item -> parameter("${queryParam.key}[]", item) }
+                            else -> parameter(queryParam.key, queryParam.value)
+                        }
                     }
                 }
             }

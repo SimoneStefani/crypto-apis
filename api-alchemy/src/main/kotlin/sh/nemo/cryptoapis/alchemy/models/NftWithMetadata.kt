@@ -29,7 +29,7 @@ data class NftWithMetadata(
     }
 
     @Serializable
-    data class Resource(val raw: String, val gateway: String)
+    data class Resource(val raw: String, val gateway: String? = null)
 
     @Serializable
     data class Metadata(

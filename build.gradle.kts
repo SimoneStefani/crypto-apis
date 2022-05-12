@@ -23,7 +23,7 @@ subprojects {
     }
 
     group = "dev.simonestefani"
-    version = "0.3.0"
+    version = "0.3.6"
 
     repositories {
         mavenCentral()

@@ -7,7 +7,11 @@ import sh.nemo.cryptoapis.alchemy.models.Nft
 import sh.nemo.cryptoapis.alchemy.models.NftWithMetadata
 
 
-suspend fun Alchemy.getNftsWithMetadata(owner: String, contractAddresses: List<String>? = null, pageKey: String? = null) =
+suspend fun Alchemy.getNftsWithMetadata(
+    owner: String,
+    contractAddresses: List<String>? = null,
+    pageKey: String? = null
+) =
     AlchemyRequester.get<GetNftsResponse<NftWithMetadata>>(
         path = "${this.apiKey}/getNFTs",
         queryParameters = mapOf(

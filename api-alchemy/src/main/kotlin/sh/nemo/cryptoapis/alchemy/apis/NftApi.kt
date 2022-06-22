@@ -3,6 +3,7 @@ package sh.nemo.cryptoapis.alchemy.apis
 import sh.nemo.cryptoapis.alchemy.Alchemy
 import sh.nemo.cryptoapis.alchemy.AlchemyRequester
 import sh.nemo.cryptoapis.alchemy.models.GetNftsResponse
+import sh.nemo.cryptoapis.alchemy.models.GetOwnersForCollectionResponse
 import sh.nemo.cryptoapis.alchemy.models.Nft
 import sh.nemo.cryptoapis.alchemy.models.NftWithMetadata
 
@@ -41,5 +42,13 @@ suspend fun Alchemy.getNftMetadata(contract: String, tokenId: String, tokenType:
             "contractAddress" to contract,
             "tokenId" to tokenId,
             "tokenType" to tokenType
+        )
+    )
+
+suspend fun Alchemy.getOwnersForCollection(contract: String) =
+    AlchemyRequester.get<GetOwnersForCollectionResponse>(
+        path = "${this.apiKey}/getOwnersForCollection",
+        queryParameters = mapOf(
+            "contractAddress" to contract,
         )
     )

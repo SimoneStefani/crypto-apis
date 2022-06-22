@@ -37,11 +37,12 @@ subprojects {
         fun implementation(dependencyNotation: Any) = this.add("implementation", dependencyNotation)
 
         implementation(kotlin("stdlib-jdk8"))
-        implementation(platform("io.ktor:ktor-bom:1.6.7"))
+        implementation(platform("io.ktor:ktor-bom:2.0.2"))
 
         implementation("io.ktor:ktor-client-core")
         implementation("io.ktor:ktor-client-cio")
-        implementation("io.ktor:ktor-client-serialization")
+        implementation("io.ktor:ktor-client-content-negotiation")
+        implementation("io.ktor:ktor-serialization-kotlinx-json")
         implementation("io.ktor:ktor-client-logging")
 
         implementation("ch.qos.logback:logback-classic:1.2.10")

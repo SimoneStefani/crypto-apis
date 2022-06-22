@@ -1,9 +1,11 @@
 package sh.nemo.cryptoapis.alchemy
 
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
 import io.ktor.client.request.accept
 import io.ktor.client.request.parameter
 import io.ktor.client.request.request
+import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
 import io.ktor.http.HttpMethod
 import io.ktor.http.contentType
@@ -30,7 +32,7 @@ class AlchemyRequester {
                 contentType(ContentType.Application.Json)
                 accept(ContentType.Application.Json)
                 requestBody?.let {
-                    body = it
+                    setBody(it)
                 }
                 queryParameters?.map { queryParam ->
                     queryParam.value?.let {
@@ -40,7 +42,7 @@ class AlchemyRequester {
                         }
                     }
                 }
-            }
+            }.body()
 
         suspend inline fun <reified T> get(path: String, queryParameters: Map<String, Any?>? = null): T =
             request(path = path, httpMethod = HttpMethod.Get, queryParameters = queryParameters)

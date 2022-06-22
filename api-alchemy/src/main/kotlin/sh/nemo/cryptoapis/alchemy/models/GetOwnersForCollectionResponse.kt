@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class GetOwnersForCollectionResponse(
-    val contractAddress: List<String>
+    val ownerAddresses: List<String>
 )
